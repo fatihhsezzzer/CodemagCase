@@ -1233,3 +1233,179 @@ Error Number:2628,State:1,Class:16
 2026-01-31 15:13:07.486 +03:00 [INF] Hosting environment: Development
 2026-01-31 15:13:07.488 +03:00 [INF] Content root path: D:\repos\Codemag_Case\src\GS1.WebAPI
 2026-01-31 15:13:08.319 +03:00 [INF] HTTP GET /swagger responded 404 in 0.6185 ms
+2026-01-31 16:28:24.560 +03:00 [WRN] Entity 'WorkOrder' has a global query filter defined and is the required end of a relationship with the entity 'SSCC'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-01-31 16:28:24.640 +03:00 [WRN] Entity 'WorkOrder' has a global query filter defined and is the required end of a relationship with the entity 'SerialNumber'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-01-31 16:28:25.739 +03:00 [INF] Veritabanı migration'ları başarıyla uygulandı
+2026-01-31 16:28:25.746 +03:00 [INF] GS1 Serialization API başlatıldı
+2026-01-31 16:28:26.196 +03:00 [INF] Now listening on: https://localhost:7206
+2026-01-31 16:28:26.198 +03:00 [INF] Now listening on: http://localhost:5110
+2026-01-31 16:28:26.204 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-31 16:28:26.206 +03:00 [INF] Hosting environment: Development
+2026-01-31 16:28:26.209 +03:00 [INF] Content root path: D:\repos\Codemag_Case\src\GS1.WebAPI
+2026-01-31 16:28:28.577 +03:00 [INF] HTTP GET /swagger responded 404 in 0.6666 ms
+2026-01-31 16:29:10.026 +03:00 [INF] HTTP GET /api/customers responded 200 in 1171.5858 ms
+2026-01-31 16:29:10.241 +03:00 [INF] HTTP GET /api/customers responded 200 in 85.5318 ms
+2026-01-31 16:29:10.728 +03:00 [INF] HTTP GET /api/products responded 200 in 198.6686 ms
+2026-01-31 16:29:10.747 +03:00 [INF] HTTP GET /api/customers responded 200 in 7.7209 ms
+2026-01-31 16:29:10.770 +03:00 [INF] HTTP GET /api/products responded 200 in 13.3640 ms
+2026-01-31 16:29:10.903 +03:00 [INF] HTTP GET /api/workorders responded 200 in 121.0540 ms
+2026-01-31 16:29:10.970 +03:00 [INF] HTTP GET /api/products responded 200 in 19.4790 ms
+2026-01-31 16:29:11.017 +03:00 [INF] HTTP GET /api/workorders responded 200 in 15.4490 ms
+2026-01-31 16:29:11.222 +03:00 [INF] HTTP GET /api/serialnumbers/by-workorder/efafef58-0193-4f3e-9ba5-103725af148e responded 200 in 289.4088 ms
+2026-01-31 16:29:11.222 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/efafef58-0193-4f3e-9ba5-103725af148e responded 200 in 165.3631 ms
+2026-01-31 16:29:11.415 +03:00 [INF] HTTP GET /api/aggregation/boxes/efafef58-0193-4f3e-9ba5-103725af148e responded 200 in 167.3053 ms
+2026-01-31 16:29:11.501 +03:00 [INF] HTTP GET /api/aggregation/pallets/efafef58-0193-4f3e-9ba5-103725af148e responded 200 in 67.8521 ms
+2026-01-31 16:29:11.528 +03:00 [INF] HTTP GET /api/aggregation/pallets/efafef58-0193-4f3e-9ba5-103725af148e responded 200 in 18.0772 ms
+2026-01-31 16:29:11.562 +03:00 [INF] HTTP GET /api/aggregation/boxes/efafef58-0193-4f3e-9ba5-103725af148e responded 200 in 27.8649 ms
+2026-01-31 19:02:33.889 +03:00 [INF] HTTP GET /api/customers responded 200 in 151.4400 ms
+2026-01-31 19:02:34.033 +03:00 [INF] HTTP GET /api/customers responded 200 in 12.9386 ms
+2026-01-31 19:02:34.076 +03:00 [INF] HTTP GET /api/products responded 200 in 10.4818 ms
+2026-01-31 19:02:34.105 +03:00 [INF] HTTP GET /api/customers responded 200 in 17.4706 ms
+2026-01-31 19:02:34.123 +03:00 [INF] HTTP GET /api/products responded 200 in 10.8293 ms
+2026-01-31 19:02:34.138 +03:00 [INF] HTTP GET /api/workorders responded 200 in 8.2951 ms
+2026-01-31 19:02:34.176 +03:00 [INF] HTTP GET /api/products responded 200 in 9.1631 ms
+2026-01-31 19:02:34.194 +03:00 [INF] HTTP GET /api/workorders responded 200 in 10.5667 ms
+2026-01-31 19:02:41.914 +03:00 [INF] HTTP POST /api/products responded 400 in 126.6596 ms
+2026-01-31 19:03:27.623 +03:00 [INF] HTTP POST /api/products responded 400 in 5.7261 ms
+2026-01-31 19:03:59.366 +03:00 [INF] HTTP POST /api/products responded 400 in 3.9245 ms
+2026-01-31 19:05:27.661 +03:00 [INF] HTTP GET /api/customers responded 200 in 88.8163 ms
+2026-01-31 19:05:27.853 +03:00 [INF] HTTP GET /api/customers responded 200 in 9.8156 ms
+2026-01-31 19:05:27.908 +03:00 [INF] HTTP GET /api/products responded 200 in 10.0183 ms
+2026-01-31 19:05:27.927 +03:00 [INF] HTTP GET /api/customers responded 200 in 8.1279 ms
+2026-01-31 19:05:27.944 +03:00 [INF] HTTP GET /api/products responded 200 in 9.2839 ms
+2026-01-31 19:05:27.964 +03:00 [INF] HTTP GET /api/workorders responded 200 in 10.9110 ms
+2026-01-31 19:05:28.027 +03:00 [INF] HTTP GET /api/products responded 200 in 28.4800 ms
+2026-01-31 19:05:28.070 +03:00 [INF] HTTP GET /api/workorders responded 200 in 12.6228 ms
+2026-01-31 19:05:44.946 +03:00 [INF] HTTP POST /api/products responded 400 in 1.4227 ms
+2026-01-31 19:05:54.376 +03:00 [INF] HTTP POST /api/products responded 400 in 0.6693 ms
+2026-01-31 19:05:58.654 +03:00 [INF] HTTP POST /api/products responded 400 in 0.8444 ms
+2026-01-31 19:07:20.206 +03:00 [INF] Yeni ürün oluşturuldu: "fb556f5b-1ad7-4373-b48b-07e3cd9cc9f2" - Test Ürün
+2026-01-31 19:07:20.255 +03:00 [INF] HTTP POST /api/products responded 201 in 328.5513 ms
+2026-01-31 19:07:21.193 +03:00 [INF] HTTP GET /api/products responded 200 in 13.1398 ms
+2026-01-31 19:07:21.211 +03:00 [INF] HTTP GET /api/customers responded 200 in 8.6737 ms
+2026-01-31 19:07:21.236 +03:00 [INF] HTTP GET /api/products responded 200 in 9.6703 ms
+2026-01-31 19:07:48.794 +03:00 [INF] Yeni iş emri oluşturuldu: "f8bbd1e3-d057-4a0d-970c-51777c65b9a5" - 1
+2026-01-31 19:07:48.799 +03:00 [INF] HTTP POST /api/workorders responded 201 in 145.3118 ms
+2026-01-31 19:07:49.855 +03:00 [INF] HTTP GET /api/workorders responded 200 in 9.4522 ms
+2026-01-31 19:07:49.889 +03:00 [INF] HTTP GET /api/serialnumbers/by-workorder/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 21.1136 ms
+2026-01-31 19:07:49.903 +03:00 [INF] HTTP GET /api/products responded 200 in 12.5444 ms
+2026-01-31 19:07:49.941 +03:00 [INF] HTTP GET /api/workorders responded 200 in 14.5924 ms
+2026-01-31 19:07:49.976 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 25.5934 ms
+2026-01-31 19:07:50.010 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 29.0859 ms
+2026-01-31 19:07:50.050 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 24.5574 ms
+2026-01-31 19:07:50.074 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 16.5327 ms
+2026-01-31 19:07:50.094 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 15.4817 ms
+2026-01-31 19:07:51.307 +03:00 [INF] Seri numaraları üretildi: "f8bbd1e3-d057-4a0d-970c-51777c65b9a5" - Adet: 10
+2026-01-31 19:07:51.310 +03:00 [INF] HTTP POST /api/workorders/f8bbd1e3-d057-4a0d-970c-51777c65b9a5/generate-serials responded 200 in 208.8559 ms
+2026-01-31 19:07:52.092 +03:00 [INF] HTTP GET /api/serialnumbers/by-workorder/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 24.9440 ms
+2026-01-31 19:08:00.206 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 28.1616 ms
+2026-01-31 19:08:00.239 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 25.3361 ms
+2026-01-31 19:08:00.268 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 22.1720 ms
+2026-01-31 19:08:00.292 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 18.8862 ms
+2026-01-31 19:08:00.316 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 17.5397 ms
+2026-01-31 19:08:49.470 +03:00 [INF] Yeni koli oluşturuldu: 08681234002922315666 - WorkOrder: "f8bbd1e3-d057-4a0d-970c-51777c65b9a5"
+2026-01-31 19:08:49.518 +03:00 [INF] HTTP POST /api/aggregation/create-box responded 201 in 554.3352 ms
+2026-01-31 19:08:50.501 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 31.8024 ms
+2026-01-31 19:08:50.687 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 56.9146 ms
+2026-01-31 19:08:50.734 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 26.7358 ms
+2026-01-31 19:08:50.804 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 48.7188 ms
+2026-01-31 19:08:51.033 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 128.8707 ms
+2026-01-31 19:08:51.151 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-01-31 19:08:51.198 +03:00 [INF] HTTP GET /api/aggregation/f4d53710-4bc0-4cfb-9d87-5af81bcfd8c9/hierarchy responded 200 in 122.3048 ms
+2026-01-31 19:10:19.654 +03:00 [INF] HTTP GET /api/customers responded 200 in 7.3746 ms
+2026-01-31 19:10:19.789 +03:00 [INF] HTTP GET /api/customers responded 200 in 8.2237 ms
+2026-01-31 19:10:19.845 +03:00 [INF] HTTP GET /api/products responded 200 in 11.5455 ms
+2026-01-31 19:10:19.863 +03:00 [INF] HTTP GET /api/customers responded 200 in 7.0317 ms
+2026-01-31 19:10:19.880 +03:00 [INF] HTTP GET /api/products responded 200 in 8.6635 ms
+2026-01-31 19:10:19.901 +03:00 [INF] HTTP GET /api/workorders responded 200 in 11.0072 ms
+2026-01-31 19:10:19.940 +03:00 [INF] HTTP GET /api/products responded 200 in 9.0291 ms
+2026-01-31 19:10:19.954 +03:00 [INF] HTTP GET /api/workorders responded 200 in 8.7091 ms
+2026-01-31 19:10:19.984 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 19.4460 ms
+2026-01-31 19:10:20.032 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 18.1495 ms
+2026-01-31 19:10:20.075 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 23.5141 ms
+2026-01-31 19:10:20.101 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 18.9922 ms
+2026-01-31 19:10:20.125 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 18.7518 ms
+2026-01-31 19:10:20.139 +03:00 [INF] HTTP GET /api/aggregation/f4d53710-4bc0-4cfb-9d87-5af81bcfd8c9/hierarchy responded 200 in 8.2881 ms
+2026-01-31 19:11:39.411 +03:00 [INF] HTTP GET /api/customers responded 200 in 9.6151 ms
+2026-01-31 19:11:39.652 +03:00 [INF] HTTP GET /api/customers responded 200 in 14.1015 ms
+2026-01-31 19:11:39.693 +03:00 [INF] HTTP GET /api/products responded 200 in 9.5811 ms
+2026-01-31 19:11:39.706 +03:00 [INF] HTTP GET /api/customers responded 200 in 7.0386 ms
+2026-01-31 19:11:39.720 +03:00 [INF] HTTP GET /api/products responded 200 in 8.9540 ms
+2026-01-31 19:11:39.735 +03:00 [INF] HTTP GET /api/workorders responded 200 in 8.5433 ms
+2026-01-31 19:11:39.782 +03:00 [INF] HTTP GET /api/products responded 200 in 11.8755 ms
+2026-01-31 19:11:39.798 +03:00 [INF] HTTP GET /api/workorders responded 200 in 8.7880 ms
+2026-01-31 19:11:39.826 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 18.3897 ms
+2026-01-31 19:11:39.864 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 17.3782 ms
+2026-01-31 19:11:39.906 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 18.1057 ms
+2026-01-31 19:11:39.935 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 20.8621 ms
+2026-01-31 19:11:39.957 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 16.3996 ms
+2026-01-31 19:11:39.974 +03:00 [INF] HTTP GET /api/aggregation/f4d53710-4bc0-4cfb-9d87-5af81bcfd8c9/hierarchy responded 200 in 12.2141 ms
+2026-01-31 19:13:52.815 +03:00 [INF] HTTP GET /api/customers responded 200 in 15.3814 ms
+2026-01-31 19:13:52.998 +03:00 [INF] HTTP GET /api/customers responded 200 in 13.4583 ms
+2026-01-31 19:13:53.043 +03:00 [INF] HTTP GET /api/products responded 200 in 8.9260 ms
+2026-01-31 19:13:53.065 +03:00 [INF] HTTP GET /api/customers responded 200 in 8.1623 ms
+2026-01-31 19:13:53.082 +03:00 [INF] HTTP GET /api/products responded 200 in 9.7942 ms
+2026-01-31 19:13:53.106 +03:00 [INF] HTTP GET /api/workorders responded 200 in 10.3037 ms
+2026-01-31 19:13:53.155 +03:00 [INF] HTTP GET /api/products responded 200 in 7.2997 ms
+2026-01-31 19:13:53.170 +03:00 [INF] HTTP GET /api/workorders responded 200 in 8.1168 ms
+2026-01-31 19:13:53.197 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 15.3641 ms
+2026-01-31 19:13:53.252 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 29.9300 ms
+2026-01-31 19:13:53.289 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 17.1047 ms
+2026-01-31 19:13:53.332 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 21.6635 ms
+2026-01-31 19:13:53.355 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 17.9690 ms
+2026-01-31 19:13:53.374 +03:00 [INF] HTTP GET /api/aggregation/f4d53710-4bc0-4cfb-9d87-5af81bcfd8c9/hierarchy responded 200 in 11.5684 ms
+2026-01-31 19:16:57.897 +03:00 [INF] HTTP GET /api/customers responded 200 in 8.9993 ms
+2026-01-31 19:16:58.072 +03:00 [INF] HTTP GET /api/customers responded 200 in 16.7386 ms
+2026-01-31 19:16:58.158 +03:00 [INF] HTTP GET /api/products responded 200 in 8.7732 ms
+2026-01-31 19:16:58.182 +03:00 [INF] HTTP GET /api/customers responded 200 in 9.5418 ms
+2026-01-31 19:16:58.212 +03:00 [INF] HTTP GET /api/products responded 200 in 23.6394 ms
+2026-01-31 19:16:58.239 +03:00 [INF] HTTP GET /api/workorders responded 200 in 15.5852 ms
+2026-01-31 19:16:58.296 +03:00 [INF] HTTP GET /api/products responded 200 in 9.0570 ms
+2026-01-31 19:16:58.314 +03:00 [INF] HTTP GET /api/workorders responded 200 in 11.1865 ms
+2026-01-31 19:16:58.366 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 16.3184 ms
+2026-01-31 19:16:58.412 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 19.6210 ms
+2026-01-31 19:16:58.451 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 18.2276 ms
+2026-01-31 19:16:58.479 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 21.0177 ms
+2026-01-31 19:16:58.504 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 19.6115 ms
+2026-01-31 19:16:58.521 +03:00 [INF] HTTP GET /api/aggregation/f4d53710-4bc0-4cfb-9d87-5af81bcfd8c9/hierarchy responded 200 in 11.9154 ms
+2026-01-31 19:17:04.759 +03:00 [INF] Ürünler koliye eklendi: "f4d53710-4bc0-4cfb-9d87-5af81bcfd8c9" - Adet: 3
+2026-01-31 19:17:04.763 +03:00 [INF] HTTP POST /api/aggregation/add-items-to-box responded 200 in 562.7159 ms
+2026-01-31 19:17:05.668 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 30.7068 ms
+2026-01-31 19:17:05.710 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 20.0590 ms
+2026-01-31 19:17:05.745 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 28.9432 ms
+2026-01-31 19:17:05.767 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 15.8666 ms
+2026-01-31 19:17:05.795 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 23.3392 ms
+2026-01-31 19:17:05.810 +03:00 [INF] HTTP GET /api/aggregation/f4d53710-4bc0-4cfb-9d87-5af81bcfd8c9/hierarchy responded 200 in 9.6613 ms
+2026-01-31 19:17:08.881 +03:00 [INF] Yeni palet oluşturuldu: 08681234002922315673 - WorkOrder: "f8bbd1e3-d057-4a0d-970c-51777c65b9a5"
+2026-01-31 19:17:08.884 +03:00 [INF] HTTP POST /api/aggregation/create-pallet responded 201 in 26.9713 ms
+2026-01-31 19:17:09.891 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 23.5374 ms
+2026-01-31 19:17:09.914 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 16.1564 ms
+2026-01-31 19:17:09.934 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 15.8612 ms
+2026-01-31 19:17:09.979 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 18.0250 ms
+2026-01-31 19:17:09.994 +03:00 [INF] HTTP GET /api/aggregation/2415a091-d8dd-495d-b421-8c903ee3098d/hierarchy responded 200 in 9.6899 ms
+2026-01-31 19:17:10.021 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 18.0050 ms
+2026-01-31 19:17:10.045 +03:00 [INF] HTTP GET /api/aggregation/f4d53710-4bc0-4cfb-9d87-5af81bcfd8c9/hierarchy responded 200 in 13.7595 ms
+2026-01-31 19:17:20.223 +03:00 [INF] Ürünler koliye eklendi: "f4d53710-4bc0-4cfb-9d87-5af81bcfd8c9" - Adet: 7
+2026-01-31 19:17:20.226 +03:00 [INF] HTTP POST /api/aggregation/add-items-to-box responded 200 in 106.8880 ms
+2026-01-31 19:17:20.977 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 36.3969 ms
+2026-01-31 19:17:21.002 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 17.9828 ms
+2026-01-31 19:17:21.032 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 24.3017 ms
+2026-01-31 19:17:21.080 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 27.1638 ms
+2026-01-31 19:17:21.099 +03:00 [INF] HTTP GET /api/aggregation/2415a091-d8dd-495d-b421-8c903ee3098d/hierarchy responded 200 in 12.9108 ms
+2026-01-31 19:17:21.132 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 20.9954 ms
+2026-01-31 19:17:21.146 +03:00 [INF] HTTP GET /api/aggregation/f4d53710-4bc0-4cfb-9d87-5af81bcfd8c9/hierarchy responded 200 in 8.7922 ms
+2026-01-31 19:17:23.021 +03:00 [INF] HTTP GET /api/serialnumbers/by-workorder/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 15.4531 ms
+2026-01-31 19:17:23.164 +03:00 [INF] HTTP GET /api/serialnumbers/by-workorder/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 16.2509 ms
+2026-01-31 19:17:23.235 +03:00 [INF] HTTP GET /api/serialnumbers/by-workorder/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 14.4049 ms
+2026-01-31 19:17:23.264 +03:00 [INF] HTTP GET /api/serialnumbers/by-workorder/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 26.6867 ms
+2026-01-31 19:17:32.400 +03:00 [INF] Koliler palete eklendi: "2415a091-d8dd-495d-b421-8c903ee3098d" - Adet: 1
+2026-01-31 19:17:32.403 +03:00 [INF] HTTP POST /api/aggregation/add-boxes-to-pallet responded 200 in 743.2978 ms
+2026-01-31 19:17:33.286 +03:00 [INF] HTTP GET /api/serialnumbers/unassigned/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 31.6181 ms
+2026-01-31 19:17:33.318 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 27.2399 ms
+2026-01-31 19:17:33.339 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 15.9095 ms
+2026-01-31 19:17:33.399 +03:00 [INF] HTTP GET /api/aggregation/pallets/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 25.3046 ms
+2026-01-31 19:17:33.418 +03:00 [INF] HTTP GET /api/aggregation/2415a091-d8dd-495d-b421-8c903ee3098d/hierarchy responded 200 in 12.6630 ms
+2026-01-31 19:17:33.449 +03:00 [INF] HTTP GET /api/aggregation/boxes/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 19.7986 ms
+2026-01-31 19:17:38.202 +03:00 [INF] Seri numaraları üretildi: "f8bbd1e3-d057-4a0d-970c-51777c65b9a5" - Adet: 10
+2026-01-31 19:17:38.205 +03:00 [INF] HTTP POST /api/workorders/f8bbd1e3-d057-4a0d-970c-51777c65b9a5/generate-serials responded 200 in 45.1248 ms
+2026-01-31 19:17:39.400 +03:00 [INF] HTTP GET /api/serialnumbers/by-workorder/f8bbd1e3-d057-4a0d-970c-51777c65b9a5 responded 200 in 66.0653 ms
