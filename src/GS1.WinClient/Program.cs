@@ -26,7 +26,7 @@ static class Program
     private static void ConfigureServices(IServiceCollection services)
     {
         // API Base URL
-        var apiBaseUrl = "https://bulutalbum.com.tr"; // veya appsettings'den okunabilir
+        var apiBaseUrl = "https://localhost:7206"; 
 
         // HttpClient
         services.AddHttpClient<ApiClient>(client =>
