@@ -107,7 +107,6 @@ cd src/GS1.WebAPI
 dotnet ef database update --project ../GS1.Infrastructure/GS1.Infrastructure.csproj
 ```
 
-Veya uygulama ilk çalıştığında otomatik olarak migration uygulanacaktır.
 
 ### 3. API'yi Başlatma
 
@@ -116,7 +115,6 @@ cd src/GS1.WebAPI
 dotnet run
 ```
 
-API varsayılan olarak `https://localhost:7001` adresinde çalışacaktır.
 
 ### 4. Windows Client'ı Başlatma
 
