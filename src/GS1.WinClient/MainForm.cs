@@ -50,14 +50,19 @@ public partial class MainForm : Form
 
     // Aggregation Tab kontrolleri
     private ComboBox cmbWorkOrderForAggregation = null!;
-    private DataGridView dgvBoxes = null!;
-    private DataGridView dgvPallets = null!;
-    private DataGridView dgvUnassignedItems = null!;
+    private CheckedListBox clbBoxes = null!;
+    private CheckedListBox clbPallets = null!;
+    private CheckedListBox clbUnassignedItems = null!;
     private Button btnCreateBox = null!;
     private Button btnCreatePallet = null!;
     private Button btnAddToBox = null!;
     private Button btnAddToPallet = null!;
     private TreeView tvAggregationHierarchy = null!;
+    
+    // Veri listeleri
+    private List<SerialNumberDto> _unassignedSerials = new();
+    private List<SSCCDto> _boxes = new();
+    private List<SSCCDto> _pallets = new();
 
     public MainForm(ApiClient apiClient)
     {
@@ -770,71 +775,42 @@ public partial class MainForm : Form
 
         // Atanmamış ürünler
         var lblUnassigned = new Label { Text = "Atanmamış Ürünler:", Location = new Point(10, 50), Size = new Size(150, 20) };
-        dgvUnassignedItems = new DataGridView
+        clbUnassignedItems = new CheckedListBox
         {
             Location = new Point(10, 75),
             Size = new Size(300, 200),
-            AutoGenerateColumns = false,
-            SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-            AllowUserToAddRows = false,
-            ReadOnly = false,
-            MultiSelect = true
+            CheckOnClick = true,
+            SelectionMode = SelectionMode.One
         };
-        dgvUnassignedItems.Columns.AddRange(
-            new DataGridViewCheckBoxColumn { Name = "Select", HeaderText = "", Width = 30, ReadOnly = false },
-            new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "ID", DataPropertyName = "Id", Width = 50, ReadOnly = true },
-            new DataGridViewTextBoxColumn { Name = "Serial", HeaderText = "Seri No", DataPropertyName = "Serial", Width = 120, ReadOnly = true }
-        );
-        dgvUnassignedItems.CellContentClick += DgvUnassignedItems_CellContentClick;
 
         btnAddToBox = new Button { Text = "Seçilenleri Koliye Ekle →", Location = new Point(10, 285), Size = new Size(180, 30) };
         btnAddToBox.Click += BtnAddToBox_Click;
 
         // Koliler
         var lblBoxes = new Label { Text = "Koliler:", Location = new Point(330, 50), Size = new Size(100, 20) };
-        dgvBoxes = new DataGridView
+        clbBoxes = new CheckedListBox
         {
             Location = new Point(330, 75),
             Size = new Size(330, 150),
-            AutoGenerateColumns = false,
-            SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-            AllowUserToAddRows = false,
-            ReadOnly = false,
-            MultiSelect = true
+            CheckOnClick = true,
+            SelectionMode = SelectionMode.One
         };
-        dgvBoxes.Columns.AddRange(
-            new DataGridViewCheckBoxColumn { Name = "Select", HeaderText = "", Width = 30, ReadOnly = false },
-            new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "ID", DataPropertyName = "Id", Width = 40, ReadOnly = true },
-            new DataGridViewTextBoxColumn { Name = "SSCCCode", HeaderText = "SSCC", DataPropertyName = "SSCCCode", Width = 120, ReadOnly = true },
-            new DataGridViewTextBoxColumn { Name = "ItemCount", HeaderText = "Ürün", DataPropertyName = "ItemCount", Width = 45, ReadOnly = true },
-            new DataGridViewTextBoxColumn { Name = "ItemsPerBox", HeaderText = "Kapasite", DataPropertyName = "ItemsPerBox", Width = 60, ReadOnly = true }
-        );
-        dgvBoxes.CellContentClick += DgvBoxes_CellContentClick;
 
         btnAddToPallet = new Button { Text = "Seçilenleri Palete Ekle ↓", Location = new Point(330, 235), Size = new Size(180, 30) };
         btnAddToPallet.Click += BtnAddToPallet_Click;
 
         // Paletler
         var lblPallets = new Label { Text = "Paletler:", Location = new Point(330, 275), Size = new Size(100, 20) };
-        dgvPallets = new DataGridView
+        clbPallets = new CheckedListBox
         {
             Location = new Point(330, 300),
             Size = new Size(330, 150),
-            AutoGenerateColumns = false,
-            SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-            AllowUserToAddRows = false,
-            ReadOnly = true
+            CheckOnClick = true,
+            SelectionMode = SelectionMode.One
         };
-        dgvPallets.Columns.AddRange(
-            new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "ID", DataPropertyName = "Id", Width = 50 },
-            new DataGridViewTextBoxColumn { Name = "SSCCCode", HeaderText = "SSCC", DataPropertyName = "SSCCCode", Width = 120 },
-            new DataGridViewTextBoxColumn { Name = "ItemCount", HeaderText = "Koli", DataPropertyName = "ItemCount", Width = 50 },
-            new DataGridViewButtonColumn { Name = "Details", HeaderText = "Detay", Text = "Göster", UseColumnTextForButtonValue = true, Width = 60 }
-        );
-        dgvPallets.CellClick += DgvPallets_CellClick;
 
         leftPanel.Controls.AddRange(new Control[] { lblSelectWO, cmbWorkOrderForAggregation, btnCreateBox, btnCreatePallet,
-            lblUnassigned, dgvUnassignedItems, btnAddToBox, lblBoxes, dgvBoxes, btnAddToPallet, lblPallets, dgvPallets });
+            lblUnassigned, clbUnassignedItems, btnAddToBox, lblBoxes, clbBoxes, btnAddToPallet, lblPallets, clbPallets });
 
         mainSplit.Panel1.Controls.Add(leftPanel);
 
@@ -893,20 +869,24 @@ public partial class MainForm : Form
 
     private async void BtnAddToBox_Click(object? sender, EventArgs e)
     {
-        if (dgvBoxes.SelectedRows.Count == 0)
+        // Seçili koliyi bul
+        if (clbBoxes.CheckedIndices.Count == 0)
         {
             MessageBox.Show("Lütfen bir koli seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
 
-        var selectedSerials = new List<Guid>();
-        foreach (DataGridViewRow row in dgvUnassignedItems.Rows)
+        if (clbBoxes.CheckedIndices.Count > 1)
         {
-            if (row.Cells["Select"].Value is true)
-            {
-                var serial = (SerialNumberDto)row.DataBoundItem;
-                selectedSerials.Add(serial.Id);
-            }
+            MessageBox.Show("Lütfen sadece bir koli seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+        }
+
+        // Seçili ürünleri bul
+        var selectedSerials = new List<Guid>();
+        foreach (int index in clbUnassignedItems.CheckedIndices)
+        {
+            selectedSerials.Add(_unassignedSerials[index].Id);
         }
 
         if (selectedSerials.Count == 0)
@@ -915,7 +895,7 @@ public partial class MainForm : Form
             return;
         }
 
-        var box = (SSCCDto)dgvBoxes.SelectedRows[0].DataBoundItem;
+        var box = _boxes[clbBoxes.CheckedIndices[0]];
         var result = await _apiClient.AddItemsToBoxAsync(box.Id, selectedSerials);
 
         if (result?.Success == true)
@@ -932,34 +912,38 @@ public partial class MainForm : Form
 
     private async void BtnAddToPallet_Click(object? sender, EventArgs e)
     {
-        if (dgvPallets.SelectedRows.Count == 0)
+        // Seçili paleti bul
+        if (clbPallets.CheckedIndices.Count == 0)
         {
             MessageBox.Show("Lütfen bir palet seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
 
-        var selectedBoxes = new List<Guid>();
-        foreach (DataGridViewRow row in dgvBoxes.Rows)
+        if (clbPallets.CheckedIndices.Count > 1)
         {
-            if (row.Cells["Select"].Value is true)
-            {
-                var box = (SSCCDto)row.DataBoundItem;
-                selectedBoxes.Add(box.Id);
-            }
+            MessageBox.Show("Lütfen sadece bir palet seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
         }
 
-        if (selectedBoxes.Count == 0)
+        // Seçili kolileri bul
+        var selectedBoxIds = new List<Guid>();
+        foreach (int index in clbBoxes.CheckedIndices)
+        {
+            selectedBoxIds.Add(_boxes[index].Id);
+        }
+
+        if (selectedBoxIds.Count == 0)
         {
             MessageBox.Show("Lütfen palete eklenecek kolileri seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
 
-        var pallet = (SSCCDto)dgvPallets.SelectedRows[0].DataBoundItem;
-        var result = await _apiClient.AddBoxesToPalletAsync(pallet.Id, selectedBoxes);
+        var pallet = _pallets[clbPallets.CheckedIndices[0]];
+        var result = await _apiClient.AddBoxesToPalletAsync(pallet.Id, selectedBoxIds);
 
         if (result?.Success == true)
         {
-            MessageBox.Show($"{selectedBoxes.Count} koli palete eklendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{selectedBoxIds.Count} koli palete eklendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             var workOrder = (WorkOrderDto)cmbWorkOrderForAggregation.SelectedItem!;
             await LoadAggregationDataAsync(workOrder.Id);
         }
@@ -975,21 +959,36 @@ public partial class MainForm : Form
         var unassignedResult = await _apiClient.GetUnassignedSerialsAsync(workOrderId);
         if (unassignedResult?.Success == true && unassignedResult.Data != null)
         {
-            dgvUnassignedItems.DataSource = unassignedResult.Data.ToList();
+            _unassignedSerials = unassignedResult.Data.ToList();
+            clbUnassignedItems.Items.Clear();
+            foreach (var serial in _unassignedSerials)
+            {
+                clbUnassignedItems.Items.Add($"{serial.Id.ToString().Substring(0, 4)}... - {serial.Serial}");
+            }
         }
 
         // Koliler
         var boxesResult = await _apiClient.GetBoxesAsync(workOrderId);
         if (boxesResult?.Success == true && boxesResult.Data != null)
         {
-            dgvBoxes.DataSource = boxesResult.Data.ToList();
+            _boxes = boxesResult.Data.ToList();
+            clbBoxes.Items.Clear();
+            foreach (var box in _boxes)
+            {
+                clbBoxes.Items.Add($"{box.SSCCCode} ({box.ItemCount}/{box.ItemsPerBox})");
+            }
         }
 
         // Paletler
         var palletsResult = await _apiClient.GetPalletsAsync(workOrderId);
         if (palletsResult?.Success == true && palletsResult.Data != null)
         {
-            dgvPallets.DataSource = palletsResult.Data.ToList();
+            _pallets = palletsResult.Data.ToList();
+            clbPallets.Items.Clear();
+            foreach (var pallet in _pallets)
+            {
+                clbPallets.Items.Add($"{pallet.SSCCCode} ({pallet.ItemCount} koli)");
+            }
         }
 
         // Hiyerarşi ağacı
@@ -1085,47 +1084,6 @@ public partial class MainForm : Form
             cmbWorkOrderForAggregation.DataSource = result.Data.ToList();
             cmbWorkOrderForAggregation.DisplayMember = "WorkOrderNumber";
             cmbWorkOrderForAggregation.ValueMember = "Id";
-        }
-    }
-
-    private void DgvUnassignedItems_CellContentClick(object? sender, DataGridViewCellEventArgs e)
-    {
-        if (e.ColumnIndex == 0 && e.RowIndex >= 0) // Select column
-        {
-            dgvUnassignedItems.CommitEdit(DataGridViewDataErrorContexts.Commit);
-        }
-    }
-
-    private void DgvBoxes_CellContentClick(object? sender, DataGridViewCellEventArgs e)
-    {
-        if (e.ColumnIndex == 0 && e.RowIndex >= 0) // Select column
-        {
-            dgvBoxes.CommitEdit(DataGridViewDataErrorContexts.Commit);
-        }
-    }
-
-    private async void DgvPallets_CellClick(object? sender, DataGridViewCellEventArgs e)
-    {
-        // Detay butonu kolonuna tıklanmışsa
-        if (e.RowIndex < 0 || e.ColumnIndex != dgvPallets.Columns["Details"].Index) return;
-
-        try
-        {
-            var pallet = (SSCCDto)dgvPallets.Rows[e.RowIndex].DataBoundItem;
-            var result = await _apiClient.GetAggregationHierarchyAsync(pallet.Id);
-
-            if (result?.Success == true && result.Data != null)
-            {
-                ShowPalletDetailsDialog(result.Data);
-            }
-            else
-            {
-                MessageBox.Show(result?.Message ?? "Palet detayları yüklenemedi", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 
